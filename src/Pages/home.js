@@ -1,19 +1,18 @@
 import React from "react";
 import Footer from "../Components/footer";
-import Header from "../Components/header";
-import Test from "../Components/test"
+import Newheader from "../Components/newheader"
 
-function Home(){
+function Home() {
 
 
-    return(
+    return (
         <>
-        <Header/>
+            <Newheader />
 
-        <Test/>
+            <p>Home</p>
 
 
-        <Footer/>
+            <Footer />
         </>
     )
 }

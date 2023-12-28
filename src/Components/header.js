@@ -44,7 +44,7 @@ const Header = () => {
             <div className='container' >
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '20px', backgroundColor: '#fff' }}>
                     <a href="/">
-                        <img src="images/logo.png" alt="Logo" style={{ cursor: 'pointer' }} />
+                        <img src="images/lsogo.png" alt="Logo" style={{ cursor: 'pointer' }} />
                     </a>
                     <div className="text-right" style={{ position: 'absolute', right: '20px' }}>
                         {status ? (

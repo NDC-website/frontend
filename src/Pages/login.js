@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import Footer from "../Components/footer";
-import Header from "../Components/header";
+import Newheader from "../Components/newheader";
 
 import { Cookies } from 'react-cookie';
 
@@ -45,7 +45,7 @@ function Login() {
 
     return (
         <>
-            <Header />
+            <Newheader />
             <div className="container">
                 <div className="row">
                     <div className="col-md-4"></div>
