@@ -8,8 +8,9 @@ function Home() {
     return (
         <>
             <Newheader />
-
-            <p>Home</p>
+            <div>
+                
+            </div>
 
 
             <Footer />

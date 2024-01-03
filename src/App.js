@@ -9,7 +9,9 @@ import Membership from './Pages/membership';
 import AddDriver from './Pages/addDriver';
 import PlaneAndPrice from './Pages/planAndPricing';
 import QuickService from './Pages/quicksServices';
+import Account from "./Pages/account"
 import { MantineProvider } from '@mantine/core';
+
 
 function App() {
   return (
@@ -20,10 +22,12 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/quickservices" element={<QuickService />} />
         <Route path="/membership" element={<Membership />} />
         <Route path="/adddriver" element={<AddDriver />} />
         <Route path="/planandprice" element={<PlaneAndPrice />} />
-        <Route path="/quickservices" element={<QuickService />} />
+        
+        <Route path="/account" element={<Account />} />
       </Routes>
     </Router>
     </MantineProvider>

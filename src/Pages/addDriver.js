@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import Footer from "../Components/footer";
-import Header from "../Components/header";
+// import Header from "../Components/header";
+import Newheader from "../Components/newheader";
 
 import { Cookies } from 'react-cookie';
 import axios from "axios";
@@ -10,14 +11,14 @@ import axios from "axios";
 
 function AddDriver() {
     const cookies = new Cookies();
+    const navigate = useNavigate();
     const [drivers, setDrivers] = useState([
         {
             id: 1,
-            fname: "",
-            lname: "",
+            name: "",
             ssn: "",
-            cdlstate: "",
-            dlnumber: "",
+            cdlState: "",
+            cdlNumber: "",
         },
     ]);
 
@@ -26,11 +27,10 @@ function AddDriver() {
             ...prevDrivers,
             {
                 id: prevDrivers.length + 1,
-                fname: "",
-                lname: "",
+                name: "",
                 ssn: "",
-                cdlstate: "",
-                dlnumber: "",
+                cdlState: "",
+                cdlNumber: "",
             },
         ]);
     };
@@ -54,16 +54,16 @@ function AddDriver() {
 
 
         try {
-            const membership = cookies.get('membershipdata')
             const token = cookies.get('token'); // Assuming your token is stored with the key 'token'
             const headers = {
                 'Content-Type': 'application/json',
                 'authorization': `Bearer ${token}` // Include the authorization token in the headers
             };
-            const response = await axios.post('http://localhost:8000/api/userlogin/addsub', { membership, drivers }, { headers })
-            
+            const response = await axios.post('http://localhost:8000/api/userlogin/addsub', { drivers }, { headers })
+            navigate("/account")
             console.log(`backend response : ${JSON.stringify(response.data)}`);
             console.log('Form submitted with data:', drivers);
+            
         } catch (error) {
             console.error('Error submitting form:', error.message);
         }
@@ -73,9 +73,9 @@ function AddDriver() {
 
     return (
         <>
-            <Header />
+            <Newheader />
 
-            <div className="container mt-4">
+            <div className="container mt-4 mb-5">
                 <p style={{ fontSize: '30px', fontWeight: 500 }}>Add Drivers</p>
                 <p>
                     Upon enrolling in the Consortium, you can add all your active drivers
@@ -92,27 +92,15 @@ function AddDriver() {
                                     <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="First Name"
-                                        name="fname"
-                                        value={driver.fname}
+                                        placeholder="Enter Name"
+                                        name="name"
+                                        value={driver.name}
                                         onChange={(e) => handleDriverChange(e, driver.id)}
                                         required
                                     />
                                 </div>
                             </div>
-                            <div className="col-md-3">
-                                <div className="mb-3">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        placeholder="Last Name"
-                                        name="lname"
-                                        value={driver.lname}
-                                        onChange={(e) => handleDriverChange(e, driver.id)}
-                                        required
-                                    />
-                                </div>
-                            </div>
+                           
                             <div className="col-md-1">
                                 <div className="mb-3">
                                     <input
@@ -132,8 +120,8 @@ function AddDriver() {
                                         type="text"
                                         className="form-control"
                                         placeholder="CDL State"
-                                        name="cdlstate"
-                                        value={driver.cdlstate}
+                                        name="cdlState"
+                                        value={driver.cdlState}
                                         onChange={(e) => handleDriverChange(e, driver.id)}
                                         required
                                     />
@@ -145,8 +133,8 @@ function AddDriver() {
                                         type="text"
                                         className="form-control"
                                         placeholder="DL Number"
-                                        name="dlnumber"
-                                        value={driver.dlnumber}
+                                        name="cdlNumber"
+                                        value={driver.cdlNumber}
                                         onChange={(e) => handleDriverChange(e, driver.id)}
                                         required
                                     />
@@ -169,7 +157,7 @@ function AddDriver() {
                         style={{ width: '100%' }}
                         onClick={makeNewDriver}
                     >
-                        Click Here to Add More Drivers
+                        <p>Click Here to Add More Drivers</p>
                     </button>
                     <input
                         type="checkbox"
@@ -178,14 +166,14 @@ function AddDriver() {
                         className="mr-3"
                         required
                     />
-                    Click Here to Confirm the Drivers Listed Above have Negative DOT
+                    <p>Click Here to Confirm the Drivers Listed Above have Negative DOT
                     Pre-Employment Drug Test Results - Then Click Finished Adding Drivers
-                    below.
+                    below.</p>
                     <p className="mt-3 ms-2">
                         If you are Not Adding Drivers - Click Finished Adding Drivers Below.
                     </p>
                     <button type="submit" className="btn btn-success">
-                        Finish Adding Drivers
+                        <p>Finish Adding Drivers</p>
                     </button>
                 </form>
             </div>
