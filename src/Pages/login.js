@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import Footer from "../Components/footer";
-import Newheader from "../Components/newheader";
-
+import Newheader from "../Components/header";
 import { Cookies } from 'react-cookie';
-
+const url = process.env.REACT_APP_URL;
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -15,7 +14,7 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:8000/api/userlogin/login`, {
+            const response = await fetch(`${url}/api/userlogin/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

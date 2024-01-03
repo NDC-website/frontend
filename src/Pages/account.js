@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import Footer from '../Components/footer';
-import Newheader from '../Components/newheader';
+import Newheader from '../Components/header';
 import axios from 'axios';
 import { Cookies } from 'react-cookie';
 const url = process.env.REACT_APP_URL;
 const UserProfile = () => {
     const cookies = new Cookies();
     const [userProfile, setUserProfile] = useState({
-        name: 'John Doe',
-        email: 'john.doe@example.com',
-        phone: '123-456-7890',
-        subscription : 0
+        name: '',
+        email: '',
+        phone: '',
+        subscription: 0
     });
-
     const [driverList, setDriverList] = useState([]);
 
     const [isUpdateModalVisible, setUpdateModalVisible] = useState(false);
@@ -42,9 +41,9 @@ const UserProfile = () => {
                     name: data.fname + ' ' + data.lname,
                     email: data.email,
                     phone: data.phone,
-                    subscription : data.subscription
+                    subscription: data.subscription
                 });
-                console.log(data)
+                // console.log(response.data)
                 setDriverList(driver);
                 // console.log(`driver : ${JSON.stringify(driver)}`)
             })
@@ -148,12 +147,12 @@ const UserProfile = () => {
                         <p><strong>Name:</strong> {userProfile.name}</p>
                         <p><strong>Email:</strong> {userProfile.email}</p>
                         <p><strong>Phone:</strong> {userProfile.phone}</p>
-                        
-                        {userProfile.subscription == 1 ?(
+
+                        {userProfile.subscription == 1 ? (
                             <p><strong>Subscription : </strong>Silver</p>
-                        ):userProfile.subscription == 2?(
+                        ) : userProfile.subscription == 2 ? (
                             <p><strong>Subscription : </strong> Gold</p>
-                        ):(
+                        ) : (
                             <p><strong>Subscription : </strong> none</p>
                         )}
                     </div>

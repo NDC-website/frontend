@@ -1,6 +1,6 @@
 import React from 'react';
 import { Accordion } from 'react-bootstrap';
-import Newheader from '../Components/newheader';
+import Newheader from '../Components/header';
 import Footer from '../Components/footer';
 
 const styles = {

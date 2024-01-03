@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "../style.css"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+const url = process.env.REACT_APP_URL;
 const Footer = () => {
 
     const [formData, setFormData] = useState({
@@ -25,7 +25,7 @@ const Footer = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:8000/api/message', formData)
+        axios.post(`${url}/api/message`, formData)
             .then((response) => {
                 toast.success("Form submitted successfully");
                 setFormData({

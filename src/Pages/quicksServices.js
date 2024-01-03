@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "../Components/footer";
-import Newheader from "../Components/newheader"
+import Newheader from "../Components/header"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const ServiceCard = ({ title, description, price }) => {

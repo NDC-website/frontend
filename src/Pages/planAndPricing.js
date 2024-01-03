@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Footer from '../Components/footer';
-import Newheader from '../Components/newheader';
+import Newheader from '../Components/header';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BsCheckCircleFill } from 'react-icons/bs';
 import { Cookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
+const url = process.env.REACT_APP_URL;
 
 const customStyles = {
     container: {
@@ -63,7 +64,7 @@ function PlaneAndPrice() {
             'Content-Type': 'application/json',
             'authorization': `Bearer ${token}`
         };
-        axios.post('http://localhost:8000/api/membership/addpayment', { plan }, { headers })
+        axios.post(`${url}/api/membership/addpayment`, { plan }, { headers })
             .then((response) => {
                 if (response.status != 200) {
                     console.log("there is an issue with payment system");
@@ -99,7 +100,7 @@ function PlaneAndPrice() {
                             'authorization': `Bearer ${token}`
                         };
 
-                        axios.post("http://localhost:8000/api/membership/savemembership",{plan},{headers})
+                        axios.post(`${url}/api/membership/savemembership`,{plan},{headers})
                         .then((response)=>{
                             navigate("/");
                         })

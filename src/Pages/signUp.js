@@ -4,8 +4,8 @@ import Header from "../Components/header";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Cookies } from 'react-cookie';
-import Newheader from '../Components/newheader';
-
+import Newheader from '../Components/header';
+const url = process.env.REACT_APP_URL;
 
 
 const SignUp = () => {
@@ -48,7 +48,7 @@ const SignUp = () => {
             };
             console.log(`form data : ${formData}`)
             // Make an Axios POST request to your backend server with headers
-            const response = await axios.post('http://localhost:8000/api/userlogin/signup', formData, { headers });
+            const response = await axios.post(`${url}/api/userlogin/signup`, formData, { headers });
 
             // Handle the response from the server (customize based on your needs)
             const data = response.data
