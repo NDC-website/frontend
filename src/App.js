@@ -19,7 +19,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/faq" element={<FAQ />} />
+        {/* <Route path="/faq" element={<FAQ />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/quickservices" element={<QuickService />} />
@@ -27,7 +27,7 @@ function App() {
         <Route path="/adddriver" element={<AddDriver />} />
         <Route path="/planandprice" element={<PlaneAndPrice />} />
         
-        <Route path="/account" element={<Account />} />
+        <Route path="/account" element={<Account />} /> */}
       </Routes>
     </Router>
     </MantineProvider>
